@@ -45,7 +45,8 @@ for i in range(number_of_passwords):
 print(password_list)
 
 time_beat = []
-note_sound = []
+all_password_sound = []
+single_password_sound = []
 
 # separates password into notes and time signature
 for i in range(number_of_passwords):
@@ -54,14 +55,25 @@ for i in range(number_of_passwords):
    # print(time_beat)
     password_list[i]=password_list[i][3:]
     print(password_list)
+
     single_note = ''
+    new_note = True
     for letter in password_list[i]:
-        if letter in notes and letter in single_note:
-            print(single_note)
-            note_sound.append(single_note)
-            single_note = ''
-        single_note += letter    
-    print(note_sound)
+        if letter in notes:
+            if single_note != '':
+                #print(single_note)
+                single_password_sound.append(single_note)
+            single_note = letter
+        else:
+            single_note += letter
+
+    if single_note != '':
+        single_password_sound.append(single_note)
+
+    all_password_sound.append(single_password_sound)    
+    single_password_sound = []
+
+print(all_password_sound)
     
 
 
