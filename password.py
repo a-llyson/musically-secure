@@ -1,7 +1,7 @@
 import random
 import string
 
-number_of_passwords = 1
+number_of_passwords = 3
 password_length = 10
 # password_length = int(input('How long should the password be? '))
 # minimum length of 3
@@ -14,10 +14,11 @@ slash = '/'
 # example: 4/4C#4bGBb17o  -> time is 4/4, C# Fb G Bb C B(lower octave) -> notes should be played
 
 
+password_list = []
+# Generate the passwords 
 for i in range(number_of_passwords):
     password = ''
     password += random.choice(time_signature) + slash + random.choice(time_signature)
-    print(password)
     current_length = 3
     while current_length < (password_length):
         sharp_flat = random.randint(0,1)
@@ -39,7 +40,28 @@ for i in range(number_of_passwords):
             password += random.choice(octave_dot)
             current_length += 1
     
-    print(password)
+    password_list.append(password)
 
+print(password_list)
+
+time_beat = []
+note_sound = []
+
+# separates password into notes and time signature
+for i in range(number_of_passwords):
+    beat = password_list[i][:3]
+    time_beat.append(beat)
+   # print(time_beat)
+    password_list[i]=password_list[i][3:]
+    print(password_list)
+    single_note = ''
+    for letter in password_list[i]:
+        if letter in notes and letter in single_note:
+            print(single_note)
+            note_sound.append(single_note)
+            single_note = ''
+        single_note += letter    
+    print(note_sound)
+    
 
 
