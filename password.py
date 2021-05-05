@@ -1,71 +1,6 @@
 import random
 import string
 
-number_of_passwords = 3
-password_length = 10
-# password_length = int(input('How long should the password be? '))
-# minimum length of 3
-
-notes = 'CDEFGAB1234567'
-pitch = '#b'
-octave_dot = 'oO' # upper case O is upper octave while lower case o is lower octave
-# example: C#4bGBb17o  -> C# Fb G Bb C B(lower octave) -> notes should be played
-
-
-password_list = []
-# Generate the passwords 
-for i in range(number_of_passwords):
-    password = ''
-    current_length = 0
-    while current_length < (password_length):
-        sharp_flat = random.randint(0,1)
-        octave = random.randint(0,1)
-        password += random.choice(notes)
-        current_length += 1
-
-        if current_length >= password_length:
-            break
-
-        if sharp_flat == 0:
-            password += random.choice(pitch)
-            current_length += 1
-
-        if current_length >= password_length:
-            break
-        
-        if octave == 0:
-            password += random.choice(octave_dot)
-            current_length += 1
-    
-    password_list.append(password)
-
-print(password_list)
-
-all_password_sound = []
-single_password_sound = []
-
-# separates password into notes
-for i in range(number_of_passwords):
-    print(password_list)
-    single_note = ''
-    new_note = True
-    for letter in password_list[i]:
-        if letter in notes:
-            if single_note != '':
-                single_password_sound.append(single_note)
-            single_note = letter
-        else:
-            single_note += letter
-
-    if single_note != '':
-        single_password_sound.append(single_note)
-
-    all_password_sound.append(single_password_sound)    
-    single_password_sound = []
-
-print(all_password_sound)
-
-
 def note_convert(num):
     if num == '1':
         return 'C'
@@ -93,10 +28,8 @@ def pitch_convert(note):
         return 'F'
     else:
         return note
+
 # converts notes into notes that the synth can read
-
-
-
 def converter(note):
     converted_note = ''
     numbers = '1234567'
@@ -115,11 +48,73 @@ def converter(note):
         else:
             converted_note = val
 
-    print('115')
-    print(converted_note)
     if converted_note[-1] != '3' or converted_note[-1] != '5':
         converted_note += '4'
     
     return converted_note
 
+def password_gen(num_pass=1, pass_len=1):
+    number_of_passwords = num_pass
+    password_length = pass_len
+
+    notes = 'CDEFGAB1234567'
+    pitch = '#b'
+    octave_dot = 'oO' # upper case O is upper octave while lower case o is lower octave
+    # example: C#4bGBb17o  -> C# Fb G Bb C B(lower octave) -> notes should be played
+
+    password_list = []
+
+    # Generate the passwords 
+    for i in range(number_of_passwords):
+        password = ''
+        current_length = 0
+        while current_length < (password_length):
+            sharp_flat = random.randint(0,1)
+            octave = random.randint(0,1)
+            password += random.choice(notes)
+            current_length += 1
+
+            if current_length >= password_length:
+                break
+
+            if sharp_flat == 0:
+                password += random.choice(pitch)
+                current_length += 1
+
+            if current_length >= password_length:
+                break
+            
+            if octave == 0:
+                password += random.choice(octave_dot)
+                current_length += 1
+        
+        password_list.append(password)
+
+
+    all_password_sound = []
+    single_password_sound = []
+
+    # separates password into notes
+    for i in range(number_of_passwords):
+        single_note = ''
+        new_note = True
+        for letter in password_list[i]:
+            if letter in notes:
+                if single_note != '':
+                    single_password_sound.append(single_note)
+                single_note = letter
+            else:
+                single_note += letter
+
+        if single_note != '':
+            single_password_sound.append(single_note)
+
+        all_password_sound.append(single_password_sound)    
+        single_password_sound = []
+
+    return all_password_sound
+
+
+
+print(password_gen(5, 7))
 print(converter('C#'))
