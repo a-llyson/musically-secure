@@ -9,17 +9,14 @@ password_length = 10
 notes = 'CDEFGAB1234567'
 pitch = '#b'
 octave_dot = 'oO' # upper case O is upper octave while lower case o is lower octave
-time_signature = '123456789'
-slash = '/'
-# example: 4/4C#4bGBb17o  -> time is 4/4, C# Fb G Bb C B(lower octave) -> notes should be played
+# example: C#4bGBb17o  -> C# Fb G Bb C B(lower octave) -> notes should be played
 
 
 password_list = []
 # Generate the passwords 
 for i in range(number_of_passwords):
     password = ''
-    password += random.choice(time_signature) + slash + random.choice(time_signature)
-    current_length = 3
+    current_length = 0
     while current_length < (password_length):
         sharp_flat = random.randint(0,1)
         octave = random.randint(0,1)
@@ -44,24 +41,17 @@ for i in range(number_of_passwords):
 
 print(password_list)
 
-time_beat = []
 all_password_sound = []
 single_password_sound = []
 
-# separates password into notes and time signature
+# separates password into notes
 for i in range(number_of_passwords):
-    beat = password_list[i][:3]
-    time_beat.append(beat)
-   # print(time_beat)
-    password_list[i]=password_list[i][3:]
     print(password_list)
-
     single_note = ''
     new_note = True
     for letter in password_list[i]:
         if letter in notes:
             if single_note != '':
-                #print(single_note)
                 single_password_sound.append(single_note)
             single_note = letter
         else:
@@ -74,6 +64,60 @@ for i in range(number_of_passwords):
     single_password_sound = []
 
 print(all_password_sound)
+
+
+def note_convert(num):
+    if num == '1':
+        return 'C'
+    elif num == '2':
+        return 'D'
+    elif num == '3':
+        return 'E'
+    elif num == '4':
+        return 'F'
+    elif num == '5':
+        return 'G'
+    elif num == '6':
+        return 'A'
+    elif num == '7':
+        return 'B'
+
+def pitch_convert(note):
+    if note == 'Cb' : 
+        return 'B'
+    elif note == 'Fb':
+        return 'E'
+    elif note == 'B#': 
+        return 'C'
+    elif note == 'E#':
+        return 'F'
+    else:
+        return note
+# converts notes into notes that the synth can read
+
+
+
+def converter(note):
+    converted_note = ''
+    numbers = '1234567'
+    for i in range(0, len(note)):
+        val = note[i]
+        converted_note = val
+        if val in numbers:
+            converted_note = note_convert(val)
+        elif val == '#' or val == 'b':
+            converted_note += val
+            converted_note = pitch_convert(converted_note)
+        if val == 'o':
+            converted_note += '3'
+        elif val == 'O':
+            converted_note += '5'
+
+    print('115')
+    print(converted_note)
+    if converted_note[-1] != '3' or converted_note[-1] != '5':
+        converted_note += '4'
     
+    return converted_note
 
-
+print(converter('C#'))
