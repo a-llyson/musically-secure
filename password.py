@@ -102,16 +102,18 @@ def converter(note):
     numbers = '1234567'
     for i in range(0, len(note)):
         val = note[i]
-        converted_note = val
+        
         if val in numbers:
             converted_note = note_convert(val)
         elif val == '#' or val == 'b':
             converted_note += val
             converted_note = pitch_convert(converted_note)
-        if val == 'o':
+        elif val == 'o':
             converted_note += '3'
         elif val == 'O':
             converted_note += '5'
+        else:
+            converted_note = val
 
     print('115')
     print(converted_note)
