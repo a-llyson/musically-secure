@@ -11,20 +11,50 @@
   {% block title %}Password Generator{% endblock %}
   {% block content %}
 
+  <section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+      <div class="container">
+        <div class="row text-white">
+          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <h1 class="display-6 py-2">Password Generator</h1>
+            <div class="px-2">
+              <form action="" class="justify-content-center">
+                <div class="form-group">
+                  <label for="number"> Number of passwords (minimum 1):</label>
+                  <input type="number" class="form-control" min="1" placeholder="Number of passwords">
+                </div>
+                <div class="form-group">
+                  <label for="length"> Length of password (minimum 1):</label>
+                  <input type="number" class="form-control" min="1" placeholder="Length of password">
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg">Go!</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---
+  <div class="row justify-content-center">
+    <form action="#" method="POST">
+        <div class="form-group">
+          <div class="container center_div">
+            <label for="number_of_passwords">Number of Passwords</label>
+            <input type="number" class="form-control" id="number_of_passwords" placeholder="Amount">
+        </div>
+        <div class="form-group">
 
-  <form action="#" method="POST">
-    
-    <div class="form-group">
-      <label for="number_of_passwords">Number of Passwords</label>
-      <input type="number" class="form-control" id="number_of_passwords" placeholder="Amount">
-    </div>
-    <div class="form-group">
-      <label for="password_length">Password Length</label>
-      <input type="number" class="form-control" id="password_length" placeholder="Length">
-    </div>
-    <button class="w3-button w3-red">Red</button>
+          <label for="password_length">Password Length</label>
+          <input type="number" class="form-control" id="password_length" placeholder="Length">
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-info" value="Submit">Submit</button>
+  </div>
+
   </form>
-
+-->
   {% endblock %}
 </body>
 

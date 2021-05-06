@@ -3,33 +3,29 @@
 
 h1 {
     font-family: 'Raleway', Verdana, Geneva, Tahoma, sans-serif;
-    color:#34495e;
+    color:#3C1874;
     text-align: center;
     padding: 10px;
 }
 
+body {
+    background-color: #F3F3F3;
+}
+
 .form-group {
     font-family: 'Source Sans Pro', Verdana, Geneva, Tahoma, sans-serif;
-    color: #34495e;
+    color: #283747;
+    size: 20px;
 }
 
-input[type=text] {
-    width: 95%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin-left: 5%;
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
