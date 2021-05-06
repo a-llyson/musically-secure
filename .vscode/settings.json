@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\allys\\Documents\\Coding\\vs\\musically-secure\\venv\\Scripts\\python.exe"
+    "python.pythonPath": "c:\\Users\\allys\\Documents\\Coding\\vs\\musically-secure\\venv\\Scripts\\python.exe",
+    "python.formatting.provider": "yapf"
 }
