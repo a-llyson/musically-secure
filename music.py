@@ -4,7 +4,7 @@ from password import password_gen, note_password_gen, convert_all
 x = password_gen(1, 15)
 y = note_password_gen(x)
 z = convert_all(y)
-print(z)
+#print(z)
 
 def play_password(lop):
     player = Player()
