@@ -152,10 +152,12 @@ def convert_all(list_of_passwords):
         single_password_sound = []
     return all_password_sound
 
-
+'''
 x = password_gen(2, 5)
 y = note_password_gen(x)
 z = convert_all(y)
+
 print(x)
 print(y)
 print(z)
+'''

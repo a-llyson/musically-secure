@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Musically Secure</title>
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/template.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="{{ url_for('home') }}" style="text-decoration:none;">
+                <h1 class="logo">Musically Secure</h1>
+            </a>
+
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+</body>

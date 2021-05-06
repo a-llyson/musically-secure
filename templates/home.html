@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Musically Secure</title>
+</head>
+
+<body>
+  {% extends "template.html" %}
+  {% block title %}Password Generator{% endblock %}
+  {% block content %}
+
+
+  <form action="#" method="POST">
+    
+    <div class="form-group">
+      <label for="number_of_passwords">Number of Passwords</label>
+      <input type="number" class="form-control" id="number_of_passwords" placeholder="Amount">
+    </div>
+    <div class="form-group">
+      <label for="password_length">Password Length</label>
+      <input type="number" class="form-control" id="password_length" placeholder="Length">
+    </div>
+    <button class="w3-button w3-red">Red</button>
+  </form>
+
+  {% endblock %}
+</body>
+
+</html>
