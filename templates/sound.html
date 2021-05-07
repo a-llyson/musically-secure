@@ -14,10 +14,11 @@
     {% for list_of_passwords, file_names in passwords_sounds %}
     <h6>{{ list_of_passwords }}</h6>
 
-    <h6>{{ name }}</h6>
-    <audio controls>
-        <source src={{ url_for("static", filename = file_names ) }} type="audio/wav">
-    </audio>
+    <div class='audio-container'>
+        <audio controls>
+            <source src={{ url_for("static", filename=file_names ) }} type="audio/wav">
+        </audio>
+    </div>
     {% endfor %}
 
     {% endblock %}
