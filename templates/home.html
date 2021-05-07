@@ -20,11 +20,11 @@
             <div class="px-2">
               <form action="#" method="POST" class="justify-content-center">
                 <div class="form-group">
-                  <label for="number"> Number of passwords (minimum 1):</label>
-                  <input type="number" name="number" class="form-control" min="1" step="1" placeholder="Number of passwords">
+                  <label for="number"> Number of passwords (min: 1, max: 10):</label>
+                  <input type="number" name="number" class="form-control" min="1" max="10" step="1" placeholder="Number of passwords">
                 </div>
                 <div class="form-group">
-                  <label for="length"> Length of password (minimum 1):</label>
+                  <label for="length"> Length of password (min: 1):</label>
                   <input type="number" name="length" class="form-control" min="1" step="1" placeholder="Length of password">
                 </div>
                 <button type="submit" class="btn btn-danger btn-lg">Go!</button>

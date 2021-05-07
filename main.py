@@ -11,8 +11,8 @@ def home():
         length = request.form["length"]
         list_of_passwords = password_gen(int(number), int(length))
         list_of_notes = convert_all(note_password_gen(list_of_passwords))
-        play_password(list_of_notes)
-        return render_template("sound.html", list_of_passwords=list_of_passwords)
+        file_names = play_password(list_of_notes)
+        return render_template("sound.html", passwords_sounds=zip(list_of_passwords, file_names))
     else:
         return render_template("home.html")
 
