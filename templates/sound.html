@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Musically Secure</title>
+</head>
+
+<body>
+    {% extends "template.html" %}
+    {% block title %}Musical Sounds{% endblock %}
+    {% block content %}
+    <h5>Click play to hear the audio</h5>
+    {% for password in list_of_passwords %}
+    <h6>{{ password }}</h6>
+    {% endfor %}
+
+    
+    <audio controls>
+        <source src={{ url_for("static", filename = "password0.wav") }} type="audio/mpeg">
+    </audio>
+
+
+    {% endblock %}
+</body>
+
+</html>

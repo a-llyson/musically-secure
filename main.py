@@ -7,12 +7,12 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def home():
     if request.method == 'POST':
-        print("hl")
-        number = request.form["name"]
+        number = request.form["number"]
         length = request.form["length"]
-        list_of_passwords = password_gen(number, length)
+        list_of_passwords = password_gen(int(number), int(length))
         list_of_notes = convert_all(note_password_gen(list_of_passwords))
-        return render_template("sound.html", list_of_passwords=list_of_passwords, length=length)
+        play_password(list_of_notes)
+        return render_template("sound.html", list_of_passwords=list_of_passwords)
     else:
         return render_template("home.html")
 
