@@ -6,6 +6,24 @@ pitch = '#b'
 octave_dot = 'oO' # upper case O is upper octave while lower case o is lower octave
     # example: C#4bGBb17o  -> C# Fb G Bb C B(lower octave) -> notes should be played
 
+note_convert = {
+    "1": "C",
+    "2": "D",
+    "3": "E",
+    "4": "F",
+    "5": "G",
+    "6": "A",
+    "7": "B"
+}
+
+pitch_convert = {
+    "Cb": "B",
+    "Fb": "E",
+    "B#": "C",
+    "E#": "F"
+}
+
+'''
 def note_convert(num):
     if num == '1':
         return 'C'
@@ -33,6 +51,7 @@ def pitch_convert(note):
         return 'F'
     else:
         return note
+'''
 
 # converts notes into notes that the synth can read
 def converter(note):
@@ -42,10 +61,17 @@ def converter(note):
         val = note[i]
         
         if val in numbers:
-            converted_note = note_convert(val)
+            converted_note = note_convert.get(val)
+            print(converted_note)
+#            converted_note = note_convert(val)
         elif val == '#' or val == 'b':
             converted_note += val
-            converted_note = pitch_convert(converted_note)
+            if pitch_convert.get(converted_note) == None:
+                converted_note = converted_note
+            else:
+                converted_note = pitch_convert.get(converted_note)
+            print(converted_note)
+ #           converted_note = pitch_convert(converted_note)
         elif val == 'o':
             converted_note += '3'
         elif val == 'O':
@@ -152,7 +178,7 @@ def convert_all(list_of_passwords):
         single_password_sound = []
     return all_password_sound
 
-'''
+
 x = password_gen(2, 5)
 y = note_password_gen(x)
 z = convert_all(y)
@@ -160,4 +186,3 @@ z = convert_all(y)
 print(x)
 print(y)
 print(z)
-'''
