@@ -23,35 +23,6 @@ pitch_convert = {
     "E#": "F"
 }
 
-'''
-def note_convert(num):
-    if num == '1':
-        return 'C'
-    elif num == '2':
-        return 'D'
-    elif num == '3':
-        return 'E'
-    elif num == '4':
-        return 'F'
-    elif num == '5':
-        return 'G'
-    elif num == '6':
-        return 'A'
-    elif num == '7':
-        return 'B'
-
-def pitch_convert(note):
-    if note == 'Cb' : 
-        return 'B'
-    elif note == 'Fb':
-        return 'E'
-    elif note == 'B#': 
-        return 'C'
-    elif note == 'E#':
-        return 'F'
-    else:
-        return note
-'''
 
 # converts notes into notes that the synth can read
 def converter(note):
@@ -140,32 +111,6 @@ def note_password_gen(pass_list):
         single_password_sound = []
 
     return all_password_sound
-
-'''
-def note_password_gen(pass_list, num_pass=1, pass_len=1):
-    all_password_sound = []
-    single_password_sound = []
-    number_of_passwords = num_pass
-    password_list = pass_list
-    # separates password into notes
-    for i in range(number_of_passwords):
-        single_note = ''
-        for letter in password_list[i]:
-            if letter in notes:
-                if single_note != '':
-                    single_password_sound.append(single_note)
-                single_note = letter
-            else:
-                single_note += letter
-
-        if single_note != '':
-            single_password_sound.append(single_note)
-
-        all_password_sound.append(single_password_sound)    
-        single_password_sound = []
-
-    return all_password_sound
-'''
 
 def convert_all(list_of_passwords):
     all_password_sound = []
